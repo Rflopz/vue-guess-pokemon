@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Pokedex from "@/components/Pokedex.vue"
+import GuessPokemon from "@/components/Pokemon/GuessPokemon.vue"
 </script>
 
 <template>
-  <Pokedex />
+  <GuessPokemon />
 </template>
 
 <style scoped>

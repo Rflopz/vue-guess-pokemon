@@ -1,13 +1,13 @@
 <script lang="ts">
 import PokemonImage from './PokemonImage.vue';
-import AnswerOptions from './AnswerOptions.vue'
-import Header from './Header.vue'
-import FinalAnswer from './FinalAnswer.vue';
+import Header from '../Layout/Header.vue'
+import Options from '../Answers/Options.vue'
+import Result from '../Answers/Result.vue';
 
 import getPokemonOptions from '@/helpers/getPokemonOptions';
 
 export default {
-  components: { PokemonImage, AnswerOptions, Header, FinalAnswer },
+  components: { PokemonImage, Options, Header, Result },
   data() {
     return {
       options: [] as Array<any>,
@@ -53,8 +53,8 @@ export default {
   <div v-if="selected !== 0">
     <Header @skip="handleSkipClick" />
     <PokemonImage :is-hidden="isHidden" :pokemon-id="selected" />
-    <AnswerOptions :options="options" :is-submitted="isSubmitted" :is-correct="isCorrect" @on-select="handleSelect" />
-    <FinalAnswer v-if="isSubmitted" :isCorrect="isCorrect" :pokemon-name="pokemonName" @skip="handleSkipClick" />
+    <Options :options="options" :is-submitted="isSubmitted" :is-correct="isCorrect" @on-select="handleSelect" />
+    <Result v-if="isSubmitted" :isCorrect="isCorrect" :pokemon-name="pokemonName" @skip="handleSkipClick" />
   </div>
   <div v-else>
     <h2>Loading, please wait...</h2>
